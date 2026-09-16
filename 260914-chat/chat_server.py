@@ -1,4 +1,5 @@
 # 일대일 채팅 서버
+# 참고문헌: https://oo7-0310.tistory.com/25 
 
 from socket import *
 from threading import *
