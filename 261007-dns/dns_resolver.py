@@ -21,7 +21,7 @@ r = dns.resolver.Resolver(configure=False)
 # # DNS 서버 IP 등록 / 왜 리스트임? nameserver's'라서?
 r.nameservers = ['127.0.0.1']
 # # DNS 서버 포트 등록(UDP 기반, 원래는 53. 지금은 개발용 임의 IP)
-r.port = 5353
+r.port = 5354
 
 # 테스트용 구글 DNS
 # r.nameservers = ['8.8.8.8']
@@ -33,6 +33,6 @@ r.port = 5353
 # ex) A -> IPv4 주소, AAAA -> IPv6 주소, CNAME -> 해당 도메인의 별칭Alias
 # *www, http/https, 슬래쉬는 프로토콜이나 경로 표시지 도메인이 아님. resolve 시 제외
 answer = r.resolve('portal.korea.ac.kr', 'A')
-print(answer)
-print(answer[0])
-print(answer[0].address)
+print(answer) # Answer 객체 전체
+print(answer[0]) # 레코드 객체
+print(answer[0].address) # 레코드의 address 속성(문자열)
