@@ -51,9 +51,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
     while True:
         client_socket, client_address = server_socket.accept()
         print(f'User {client_address} entered to chat.')
-        print('Please Welcome!')
 
         with lock:
             clients.append(client_socket)
+            print(f"Current active users: {len(clients)}")
         
         threading.Thread(target = receive, args = (client_socket,), daemon=True).start()
